@@ -17,16 +17,19 @@ def start_game():
     magic_number = random.randint(1,50)
     attempts = 0
     while True:
-        guess = int(input("Guess a number between 1 and 50:  "))
-        attempts = attempts + 1
-        if guess > magic_number:
-            print("It's lower.")
-            continue
-        elif guess < magic_number:
-            print("It's higher.")
-            continue
-        elif guess == magic_number:
-            print("Congratulations! You guessed the number!\nIt took you {} tries!\nGoodbye and thank you for playing! See you next time!\n**********\n********\n******\n****\n**".format(attempts))
-            break
+        try:
+            guess = int(input("Guess a number between 1 and 50:  "))
+            attempts = attempts + 1
+            if guess > magic_number:
+                print("It's lower.")
+                continue
+            elif guess < magic_number:
+                print("It's higher.")
+                continue
+            elif guess == magic_number:
+                print("Congratulations! You guessed the number!\nIt took you {} tries!\nGoodbye and thank you for playing! See you next time!\n**********\n********\n******\n****\n**".format(attempts))
+                break
+        except ValueError:
+            print("Whoops! Please enter a numerical value between 1 and 50!")
 
 start_game()
